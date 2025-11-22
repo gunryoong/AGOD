@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGOD - Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Specific styles for category page */
+        .category-header {
+            padding: 120px 24px 40px;
+            text-align: center;
+        }
+
+        .category-title {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header scrolled"> <!-- Always white background on this page -->
+        <div class="header-left">
+            <div class="menu-icon" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a href="index.html" class="logo">AGOD</a>
+        </div>
+        <div class="header-right">
+            <nav class="main-nav">
+                <a href="#">SEARCH</a>
+                <a href="#">LOG IN</a>
+                <a href="#">HELP</a>
+                <a href="#">CART (0)</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Drawer (Copied from index.html) -->
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+    <div class="mobile-menu-drawer">
+        <nav class="mobile-nav-list">
+            <a href="category.html?type=black-friday" class="menu-item highlight">BLACK FRIDAY</a>
+            <a href="category.html?type=new-arrivals" class="menu-item">NEW ARRIVALS</a>
+
+            <div class="menu-group">
+                <a href="#" class="menu-item has-submenu">SHOP</a>
+                <div class="submenu">
+                    <a href="category.html?type=outer">OUTER</a>
+                    <a href="category.html?type=top">TOP</a>
+                    <a href="category.html?type=pants">PANTS</a>
+                </div>
+            </div>
+
+            <a href="category.html?type=lookbook" class="menu-item">LOOK BOOK</a>
+            <a href="category.html?type=best" class="menu-item">BEST</a>
+
+            <div class="menu-divider"></div>
+
+            <div class="menu-group">
+                <a href="#" class="menu-item small">CUSTOMER CENTER</a>
+                <div class="submenu small">
+                    <a href="#">NOTICE</a>
+                    <a href="#">REVIEW</a>
+                    <a href="#">Q&A</a>
+                </div>
+            </div>
+
+            <a href="#" class="menu-item small">MY PAGE</a>
+            <a href="#" class="menu-item small">ORDER / SHIPPING</a>
+        </nav>
+
+        <div class="menu-media-section">
+            <div class="menu-media-item">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop"
+                    alt="Campaign 1">
+                <span>NEW IN</span>
+            </div>
+            <div class="menu-media-item">
+                <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?q=80&w=400&auto=format&fit=crop"
+                    alt="Campaign 2">
+                <span>CAMPAIGN</span>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="category-header-sticky">
+            <div class="subcategory-list">
+                <a href="#" class="active">모두 보기</a>
+                <a href="#">패딩자켓</a>
+                <a href="#">페이크 레더</a>
+                <a href="#">레더</a>
+                <a href="#">더블 페이스드</a>
+                <a href="#">베스트</a>
+                <a href="#">발수점퍼</a>
+                <a href="#">바람막이</a>
+                <a href="#">봄버</a>
+                <a href="#">데님</a>
+            </div>
+            <div class="filter-bar-right">
+                <div class="view-options">
+                    <span class="view-option" data-cols="1">1</span>
+                    <span class="view-option active" data-cols="2">2</span>
+                    <span class="view-option" data-cols="3">3</span>
+                    <span class="view-option" data-cols="4">4</span>
+                </div>
+                <button class="btn-filter">FILTERS</button>
+            </div>
+        </div>
+
+        <section class="product-grid category-grid cols-2" id="productGrid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop"
+                        alt="Floral Dress">
+                    <button class="btn-add-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-info">
+                    <h3>FLORAL DRESS</h3>
+                    <p>₩ 89,000</p>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1000&auto=format&fit=crop"
+                        alt="Black Blazer">
+                    <button class="btn-add-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-info">
+                    <h3>OVERSIZED BLAZER</h3>
+                    <p>₩ 129,000</p>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop"
+                        alt="Silk Shirt">
+                    <button class="btn-add-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-info">
+                    <h3>SILK SHIRT</h3>
+                    <p>₩ 79,000</p>
+                </div>
+            </div>
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?q=80&w=1000&auto=format&fit=crop"
+                        alt="Velvet Dress">
+                    <button class="btn-add-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-info">
+                    <h3>VELVET DRESS</h3>
+                    <p>₩ 99,000</p>
+                </div>
+            </div>
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=1000&auto=format&fit=crop"
+                        alt="Wool Coat">
+                    <button class="btn-add-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-info">
+                    <h3>WOOL COAT</h3>
+                    <p>₩ 249,000</p>
+                </div>
+            </div>
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000&auto=format&fit=crop"
+                        alt="Leather Jacket">
+                    <button class="btn-add-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-info">
+                    <h3>LEATHER JACKET</h3>
+                    <p>₩ 189,000</p>
+                </div>
+            </div>
+            <!-- Product 7 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&w=1000&auto=format&fit=crop"
+                        alt="White Top">
+                    <button class="btn-add-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-info">
+                    <h3>ASYMMETRIC TOP</h3>
+                    <p>₩ 49,000</p>
+                </div>
+            </div>
+            <!-- Product 8 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1000&auto=format&fit=crop"
+                        alt="Printed Dress">
+                    <button class="btn-add-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-info">
+                    <h3>PRINTED DRESS</h3>
+                    <p>₩ 89,000</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Filter Drawer -->
+    <div class="filter-overlay" id="filterOverlay"></div>
+    <div class="filter-drawer" id="filterDrawer">
+        <div class="filter-header-minimal">
+            <button class="btn-clear-filter-top">필터 삭제</button>
+            <button class="btn-close-filter">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M18 6L6 18M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="filter-content-grid">
+            <!-- Sort Section -->
+            <div class="filter-row">
+                <div class="filter-label">정렬 기준</div>
+                <div class="filter-options vertical">
+                    <div class="filter-option">오름차순 가격</div>
+                    <div class="filter-option">내림차순 가격</div>
+                    <div class="filter-option">신상품</div>
+                </div>
+            </div>
+
+            <!-- Size Section -->
+            <div class="filter-row">
+                <div class="filter-label">사이즈</div>
+                <div class="filter-options vertical">
+                    <div class="filter-option">XS</div>
+                    <div class="filter-option">S</div>
+                    <div class="filter-option">M</div>
+                    <div class="filter-option">L</div>
+                    <div class="filter-option">XL</div>
+                    <div class="filter-option">XXL</div>
+                </div>
+            </div>
+
+            <!-- Price Section -->
+            <div class="filter-row">
+                <div class="filter-label">가격</div>
+                <div class="filter-options">
+                    <div class="price-slider-container dual">
+                        <div class="slider-track"></div>
+                        <div class="range-highlight"></div>
+                        <input type="range" min="0" max="569900" value="0" class="price-slider-min">
+                        <input type="range" min="0" max="569900" value="569900" class="price-slider-max">
+                        <div class="price-range-text">₩ 0 - ₩ 569,900</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Color Section -->
+            <div class="filter-row">
+                <div class="filter-label">색상</div>
+                <div class="filter-options vertical">
+                    <div class="filter-option color-item">
+                        <span class="color-swatch" style="background-color: #8D6E63;"></span>
+                        <span>갈색</span>
+                    </div>
+                    <div class="filter-option color-item">
+                        <span class="color-swatch" style="background-color: #000000;"></span>
+                        <span>검정</span>
+                    </div>
+                    <div class="filter-option color-item">
+                        <span class="color-swatch" style="background-color: #D4AF37;"></span>
+                        <span>금속</span>
+                    </div>
+                    <div class="filter-option color-item">
+                        <span class="color-swatch" style="background-color: #FDD835;"></span>
+                        <span>노랑</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-footer-minimal">
+            <button class="btn-show-results">결과 보기</button>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <h3>HELP</h3>
+        <a href="#">Shop at AGOD.com</a>
+        <a href="#">Product</a>
+        <a href="#">Payment</a>
+        <a href="#">Shipping</a>
+        </div>
+        <div class="footer-column">
+            <h3>FOLLOW US</h3>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+        </div>
+        <div class="footer-column">
+            <h3>COMPANY</h3>
+            <a href="#">About us</a>
+            <a href="#">Offices</a>
+            <a href="#">Stores</a>
+        </div>
+        <div class="footer-column newsletter">
+            <h3>NEWSLETTER</h3>
+            <input type="email" placeholder="Enter your email here">
+        </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple script to update title based on URL param
+        const urlParams = new URLSearchParams(window.location.search);
+        const type = urlParams.get('type');
+        // if (type) {
+        //     document.getElementById('pageTitle').textContent = type.replace(/-/g, ' ');
+        // }
+
+        // View Options Toggle
+        const viewOptions = document.querySelectorAll('.view-option');
+        const productGrid = document.getElementById('productGrid');
+
+        viewOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove active class from all
+                viewOptions.forEach(opt => opt.classList.remove('active'));
+                // Add active to clicked
+                option.classList.add('active');
+
+                const cols = option.dataset.cols;
+                // Remove all col classes
+                productGrid.classList.remove('cols-1', 'cols-2', 'cols-3', 'cols-4');
+                // Add new col class
+                productGrid.classList.add(`cols-${cols}`);
+            });
+        });
+
+        // Filter Drawer Logic
+        const btnFilter = document.querySelector('.btn-filter');
+        const filterDrawer = document.getElementById('filterDrawer');
+        const filterOverlay = document.getElementById('filterOverlay');
+        const btnCloseFilter = document.querySelector('.btn-close-filter');
+        const btnShowResults = document.querySelector('.btn-show-results');
+
+        function toggleFilter() {
+            filterDrawer.classList.toggle('active');
+            filterOverlay.classList.toggle('active');
+            document.body.style.overflow = filterDrawer.classList.contains('active') ? 'hidden' : '';
+        }
+
+        if (btnFilter) btnFilter.addEventListener('click', toggleFilter);
+        if (btnCloseFilter) btnCloseFilter.addEventListener('click', toggleFilter);
+        if (filterOverlay) filterOverlay.addEventListener('click', toggleFilter);
+        if (btnShowResults) btnShowResults.addEventListener('click', toggleFilter);
+
+        // Dual Price Slider Logic
+        const sliderMin = document.querySelector('.price-slider-min');
+        const sliderMax = document.querySelector('.price-slider-max');
+        const rangeHighlight = document.querySelector('.range-highlight');
+        const priceText = document.querySelector('.price-range-text');
+        const maxVal = 569900;
+
+        function updateSlider() {
+            let min = parseInt(sliderMin.value);
+            let max = parseInt(sliderMax.value);
+
+            // Prevent crossover
+            if (min > max - 10000) {
+                if (this === sliderMin) {
+                    sliderMin.value = max - 10000;
+                    min = max - 10000;
+                } else {
+                    sliderMax.value = min + 10000;
+                    max = min + 10000;
+                }
+            }
+
+            // Update text
+            priceText.textContent = `₩ ${min.toLocaleString()} - ₩ ${max.toLocaleString()}`;
+
+            // Update highlight
+            const percentMin = (min / maxVal) * 100;
+            const percentMax = (max / maxVal) * 100;
+            rangeHighlight.style.left = percentMin + '%';
+            rangeHighlight.style.width = (percentMax - percentMin) + '%';
+        }
+
+        if (sliderMin && sliderMax) {
+            sliderMin.addEventListener('input', updateSlider);
+            sliderMax.addEventListener('input', updateSlider);
+            // Initialize highlight
+            updateSlider();
+        }
+    </script>
+</body>
+
+</html>

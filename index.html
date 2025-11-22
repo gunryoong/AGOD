@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGOD - Against All Odds</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-left">
+            <div class="menu-icon" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a href="#" class="logo">AGOD</a>
+        </div>
+        <div class="header-right">
+            <nav class="main-nav">
+                <a href="#">SEARCH</a>
+                <a href="#">LOG IN</a>
+                <a href="#">HELP</a>
+                <a href="#">CART (0)</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Drawer -->
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+    <div class="mobile-menu-drawer">
+        <nav class="mobile-nav-list">
+            <a href="category.html?type=black-friday" class="menu-item highlight">BLACK FRIDAY</a>
+            <a href="category.html?type=new-arrivals" class="menu-item">NEW ARRIVALS</a>
+
+            <div class="menu-group">
+                <a href="#" class="menu-item has-submenu">SHOP</a>
+                <div class="submenu">
+                    <a href="category.html?type=outer">OUTER</a>
+                    <a href="category.html?type=top">TOP</a>
+                    <a href="category.html?type=pants">PANTS</a>
+                </div>
+            </div>
+
+            <a href="category.html?type=lookbook" class="menu-item">LOOK BOOK</a>
+            <a href="category.html?type=best" class="menu-item">BEST</a>
+
+            <div class="menu-divider"></div>
+
+            <div class="menu-group">
+                <a href="#" class="menu-item small">CUSTOMER CENTER</a>
+                <div class="submenu small">
+                    <a href="#">NOTICE</a>
+                    <a href="#">REVIEW</a>
+                    <a href="#">Q&A</a>
+                </div>
+            </div>
+
+            <a href="#" class="menu-item small">MY PAGE</a>
+            <a href="#" class="menu-item small">ORDER / SHIPPING</a>
+        </nav>
+
+        <div class="menu-media-section">
+            <div class="menu-media-item">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop"
+                    alt="Campaign 1">
+                <span>NEW IN</span>
+            </div>
+            <div class="menu-media-item">
+                <!-- Simulating a video with an image for now, or use a real video tag if preferred -->
+                <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?q=80&w=400&auto=format&fit=crop"
+                    alt="Campaign 2">
+                <span>CAMPAIGN</span>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero-section">
+            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop"
+                alt="New Collection" class="hero-video">
+            <div class="hero-overlay">
+                <!-- Minimal overlay like Zara -->
+                <div class="hero-actions">
+                    <a href="category.html?type=woman" class="btn-hero-minimal">WOMAN</a>
+                    <a href="category.html?type=man" class="btn-hero-minimal">MAN</a>
+                    <a href="category.html?type=kids" class="btn-hero-minimal">KIDS</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop"
+                        alt="Product 1">
+                </div>
+                <div class="product-info">
+                    <h3>FLORAL DRESS</h3>
+                    <p>₩ 89,000</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1529139574466-a302d27f60d0?q=80&w=1000&auto=format&fit=crop"
+                        alt="Product 2">
+                </div>
+                <div class="product-info">
+                    <h3>TEXTURED TOP</h3>
+                    <p>₩ 49,000</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?q=80&w=1000&auto=format&fit=crop"
+                        alt="Product 3">
+                </div>
+                <div class="product-info">
+                    <h3>OVERSIZED COAT</h3>
+                    <p>₩ 159,000</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop"
+                        alt="Product 4">
+                </div>
+                <div class="product-info">
+                    <h3>SILK BLOUSE</h3>
+                    <p>₩ 79,000</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>HELP</h3>
+                <a href="#">Shop at AGOD.com</a>
+                <a href="#">Product</a>
+                <a href="#">Payment</a>
+                <a href="#">Shipping</a>
+            </div>
+            <div class="footer-column">
+                <h3>FOLLOW US</h3>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+            </div>
+            <div class="footer-column">
+                <h3>COMPANY</h3>
+                <a href="#">About us</a>
+                <a href="#">Offices</a>
+                <a href="#">Stores</a>
+            </div>
+            <div class="footer-column newsletter">
+                <h3>NEWSLETTER</h3>
+                <input type="email" placeholder="Enter your email here">
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

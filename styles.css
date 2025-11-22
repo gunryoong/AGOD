@@ -1,0 +1,883 @@
+:root {
+    --font-main: 'Inter', sans-serif;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-gray: #f5f5f5;
+    --color-text-gray: #666666;
+    --spacing-unit: 8px;
+    --header-height: 160px;
+    /* Increased to accommodate large logo */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    font-size: 13px;
+    /* Zara uses small, clean text */
+    color: var(--color-black);
+    background-color: var(--color-white);
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+}
+
+main {
+    padding-top: var(--header-height);
+    /* Push content below fixed header */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    /* Allow content to dictate height */
+    min-height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Align to top */
+    padding: 20px 24px;
+    /* More padding like Zara */
+    z-index: 1000;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    color: var(--color-black);
+    /* Default color */
+}
+
+.site-header.scrolled {
+    background-color: var(--color-white);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    z-index: 1002;
+    /* Above mobile menu */
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    width: 24px;
+}
+
+.menu-icon span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Menu Open State for Icon */
+body.menu-open .menu-icon span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+body.menu-open .menu-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+body.menu-open .menu-icon span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+.logo {
+    font-size: 100px;
+    /* Very large like Zara's current design */
+    font-weight: 700;
+    letter-spacing: -4px;
+    line-height: 0.8;
+    position: absolute;
+    left: 120px;
+    top: 10px;
+    z-index: 10;
+    color: currentColor;
+}
+
+.header-right .main-nav {
+    display: flex;
+    gap: 32px;
+    font-weight: 400;
+    font-size: 11px;
+    /* Smaller, cleaner font */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding-top: 10px;
+    /* Align with menu icon */
+}
+
+.header-right .main-nav a {
+    position: relative;
+}
+
+.header-right .main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.header-right .main-nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Mobile Menu Drawer */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px;
+    /* Or 100% on small screens */
+    max-width: 85vw;
+    height: 100vh;
+    background-color: var(--color-white);
+    z-index: 1001;
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 100px 40px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+body.menu-open .mobile-menu-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.menu-open .mobile-menu-drawer {
+    transform: translateX(0);
+}
+
+.mobile-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    /* Allow scrolling if menu is long */
+    padding-bottom: 40px;
+}
+
+.menu-item {
+    font-size: 24px;
+    font-weight: 600;
+    /* Bolder like Zara's main categories */
+    text-transform: uppercase;
+    color: var(--color-black);
+    display: block;
+    letter-spacing: -0.5px;
+}
+
+.menu-item.highlight {
+    color: #d32f2f;
+    /* Red for Black Friday/Sale */
+}
+
+.menu-item.small {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--color-text-gray);
+    margin-top: 4px;
+}
+
+.menu-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 2px;
+}
+
+.submenu a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-text-gray);
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.submenu a:hover {
+    color: var(--color-black);
+}
+
+.submenu.small a {
+    font-size: 12px;
+}
+
+.menu-divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 10px 0;
+    width: 100%;
+}
+
+/* Menu Media Section */
+.menu-media-section {
+    margin-top: auto;
+    /* Push to bottom */
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.menu-media-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.menu-media-item img,
+.menu-media-item video {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.menu-media-item:hover img {
+    transform: scale(1.05);
+}
+
+.menu-media-item span {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    color: var(--color-white);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Category Page Specifics */
+.category-header-sticky {
+    position: sticky;
+    top: var(--header-height);
+    background-color: var(--color-white);
+    z-index: 900;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.subcategory-list {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+    flex: 1;
+}
+
+.subcategory-list::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.subcategory-list a {
+    text-decoration: none;
+    color: #999;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.subcategory-list a.active,
+.subcategory-list a:hover {
+    color: var(--color-black);
+}
+
+.filter-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-shrink: 0;
+}
+
+.btn-filter {
+    background: none;
+    border: none;
+    /* Removed border */
+    padding: 0;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+    color: var(--color-black);
+}
+
+.btn-filter:hover {
+    background-color: transparent;
+    color: var(--color-black);
+    opacity: 0.7;
+}
+
+.view-options {
+    display: flex;
+    gap: 16px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.view-option {
+    font-size: 14px;
+    font-weight: 400;
+    color: #999;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.view-option.active,
+.view-option:hover {
+    color: var(--color-black);
+}
+
+.view-option.active {
+    color: var(--color-black);
+    font-weight: 600;
+}
+
+.view-option.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-black);
+}
+
+.view-option:hover {
+    color: var(--color-black);
+}
+
+.category-grid {
+    padding-top: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Add to Bag Button on Hover */
+.product-image {
+    position: relative;
+}
+
+.btn-add-cart {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background-color: var(--color-white);
+    border: none;
+    padding: 10px 20px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+
+.product-card:hover .btn-add-cart {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Grid Columns Toggle */
+.category-grid.cols-1 {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.category-grid.cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.category-grid.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.category-grid.cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* Align content to bottom */
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 40px;
+}
+
+.btn-hero-minimal {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
+}
+
+.btn-hero-minimal:hover {
+    opacity: 0.8;
+}
+
+/* Remove old hero styles if not needed or keep for fallback */
+/* Filter Drawer */
+.filter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.filter-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Filter Drawer Redesign */
+.filter-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 450px;
+    /* Slightly wider for grid */
+    height: 100%;
+    background-color: var(--color-white);
+    z-index: 999;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.filter-drawer.active {
+    right: 0;
+}
+
+.filter-header-minimal {
+    padding: 40px 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.btn-clear-filter-top {
+    background: none;
+    border: none;
+    font-size: 11px;
+    color: #999;
+    cursor: pointer;
+    padding: 0;
+    text-transform: uppercase;
+    /* Kept if needed, but Korean doesn't have case */
+}
+
+.btn-close-filter {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: var(--color-black);
+}
+
+.filter-content-grid {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    /* Spacing between sections */
+}
+
+.filter-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
+}
+
+.filter-label {
+    font-size: 11px;
+    color: #999;
+    padding-top: 2px;
+    /* Align with first option */
+}
+
+.filter-options.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.filter-option {
+    font-size: 13px;
+    color: var(--color-black);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.filter-option:hover {
+    opacity: 0.6;
+}
+
+/* Color Swatches */
+.color-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.color-swatch {
+    width: 12px;
+    height: 12px;
+    display: block;
+    /* border: 1px solid #eee; */
+}
+
+/* Price Slider */
+.price-slider-container {
+    width: 100%;
+    padding-top: 5px;
+}
+
+.price-slider-container.dual {
+    position: relative;
+    height: 30px;
+    /* Space for sliders */
+}
+
+.slider-track {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 2px;
+    background-color: #ddd;
+    z-index: 1;
+}
+
+.range-highlight {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2px;
+    background-color: var(--color-black);
+    z-index: 2;
+}
+
+.price-slider-min,
+.price-slider-max {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    pointer-events: none;
+    /* Allow clicks to pass through */
+    z-index: 3;
+    margin: 0;
+}
+
+/* Thumb Styles */
+.price-slider-min::-webkit-slider-thumb,
+.price-slider-max::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: var(--color-black);
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+    /* Re-enable clicks for thumb */
+}
+
+.price-range-text {
+    font-size: 13px;
+    color: var(--color-black);
+    margin-top: 30px;
+    /* Increased spacing */
+}
+
+.filter-footer-minimal {
+    padding: 40px;
+    /* border-top: 1px solid #eee; */
+}
+
+.btn-show-results {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-black);
+    color: var(--color-black);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-show-results:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.hero-content {
+    display: none;
+}
+
+.btn-hero {
+    display: inline-block;
+    padding: 12px 32px;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-hero:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+/* Product Grid */
+.product-grid {
+    padding: 100px 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px 16px;
+    /* Larger vertical gap */
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.product-image {
+    width: 100%;
+    aspect-ratio: 3/4;
+    /* Portrait ratio */
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--color-black);
+}
+
+.product-info h3 {
+    font-weight: 400;
+}
+
+.product-info p {
+    font-weight: 400;
+}
+
+/* Footer */
+.site-footer {
+    padding: 80px 24px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 11px;
+    background-color: var(--color-white);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 150px;
+}
+
+.footer-column h3 {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.footer-column a {
+    color: var(--color-black);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-column a:hover {
+    opacity: 0.6;
+    text-decoration: none;
+    /* Zara doesn't underline usually */
+}
+
+.newsletter input {
+    border: none;
+    border-bottom: 1px solid var(--color-black);
+    padding: 8px 0;
+    font-family: var(--font-main);
+    font-size: 11px;
+    width: 100%;
+    outline: none;
+    background: transparent;
+}
+
+.newsletter input::placeholder {
+    color: #999;
+    text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 40px;
+        left: 60px;
+    }
+
+    .header-right {
+        display: none;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        /* Smaller grid on mobile */
+        gap: 24px 8px;
+    }
+
+    .hero-overlay h2 {
+        font-size: 12px;
+    }
+
+    .mobile-menu-drawer {
+        width: 100%;
+        /* Full width on mobile */
+    }
+}
