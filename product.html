@@ -4,10 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGOD - Against All Odds</title>
+    <title>퍼 이펙트 칼라 데님 점퍼 - 먹색 | ZARA South Korea</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
@@ -76,75 +74,67 @@
 
         <div class="menu-media-section">
             <div class="menu-media-item">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop"
-                    alt="Campaign 1">
+                <img src="https://picsum.photos/400/600?random=10" alt="Campaign 1">
                 <span>NEW IN</span>
             </div>
             <div class="menu-media-item">
-                <!-- Simulating a video with an image for now, or use a real video tag if preferred -->
-                <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?q=80&w=400&auto=format&fit=crop"
-                    alt="Campaign 2">
+                <img src="https://picsum.photos/400/600?random=11" alt="Campaign 2">
                 <span>CAMPAIGN</span>
             </div>
         </div>
     </div>
 
-    <main>
-        <section class="hero-section">
-            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop"
-                alt="New Collection" class="hero-video">
-            <div class="hero-overlay">
-                <!-- Minimal overlay like Zara -->
-                <div class="hero-actions">
-                    <a href="category.html?type=woman" class="btn-hero-minimal">WOMAN</a>
-                    <a href="category.html?type=man" class="btn-hero-minimal">MAN</a>
-                    <a href="category.html?type=kids" class="btn-hero-minimal">KIDS</a>
-                </div>
-            </div>
-        </section>
+    <main class="product-container">
+        <div class="product-gallery">
+            <video autoplay muted loop playsinline poster="https://picsum.photos/850/1275?random=1">
+                <source src="https://videos.pexels.com/video-files/7653351/7653351-uhd_2160_3840_30fps.mp4"
+                    type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <img src="https://picsum.photos/850/1275?random=2" alt="Product Image 2">
+            <img src="https://picsum.photos/850/1275?random=3" alt="Product Image 3">
+            <img src="https://picsum.photos/850/1275?random=4" alt="Product Image 4">
+            <img src="https://picsum.photos/850/1275?random=5" alt="Product Image 5">
+        </div>
 
-        <section class="product-grid">
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop"
-                        alt="Product 1">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">FLORAL DRESS</div>
-                    <div class="product-price">₩ 89,000</div>
+        <div class="product-info-sticky">
+            <div class="product-header">
+                <h1 class="product-title">후드 다운 패딩 점퍼</h1>
+                <div class="product-price-detail">109,900 원</div>
+                <p class="product-ref">먹색 | 7743/888</p>
+            </div>
+
+            <div class="product-description">
+                <p>하이넥 긴소매 패딩 점퍼. 조절 가능한 엘라스틱 끈이 달린 탈부착 가능한 후드. 앞면 지퍼 포켓. 플리스 안감. 앞면 지퍼와 스냅 버튼 여밈.</p>
+            </div>
+
+            <div class="product-color-selection">
+                <div class="color-label">색상: 먹색</div>
+                <div class="color-options">
+                    <div class="color-option selected" style="background-color: #333;"></div>
+                    <div class="color-option" style="background-color: #000;"></div>
                 </div>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1529139574466-a302d27f60d0?q=80&w=1000&auto=format&fit=crop"
-                        alt="Product 2">
+
+            <div class="product-selection">
+                <div class="size-selector">
+                    <div class="size-option">XS (KR 44)</div>
+                    <div class="size-option">S (KR 55)</div>
+                    <div class="size-option">M (KR 66)</div>
+                    <div class="size-option">L (KR 77)</div>
+                    <div class="size-option">XL (KR 88)</div>
                 </div>
-                <div class="product-info">
-                    <div class="product-name">TEXTURED TOP</div>
-                    <div class="product-price">₩ 49,000</div>
-                </div>
+                <div class="size-guide-link">사이즈 가이드</div>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?q=80&w=1000&auto=format&fit=crop"
-                        alt="Product 3">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">OVERSIZED COAT</div>
-                    <div class="product-price">₩ 159,000</div>
-                </div>
+
+            <button class="btn-add-to-bag">장바구니 담기</button>
+
+            <div class="product-footer-links">
+                <div class="footer-link-item">소재 및 관리</div>
+                <div class="footer-link-item">배송 및 반품</div>
+                <div class="footer-link-item">매장 내 재고 확인</div>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop"
-                        alt="Product 4">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">SILK BLOUSE</div>
-                    <div class="product-price">₩ 79,000</div>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
     <footer class="site-footer">
@@ -174,6 +164,22 @@
             </div>
         </div>
     </footer>
+
+    <!-- Side Drawer -->
+    <div class="side-drawer-overlay" id="drawerOverlay"></div>
+    <div class="side-drawer" id="sideDrawer">
+        <div class="drawer-header">
+            <h2 id="drawerTitle">TITLE</h2>
+            <button class="drawer-close" id="drawerClose">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                    <path d="M18 6L6 18M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="drawer-content" id="drawerContent">
+            <!-- Dynamic Content -->
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

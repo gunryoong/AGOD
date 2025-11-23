@@ -29,18 +29,27 @@
     <header class="site-header scrolled"> <!-- Always white background on this page -->
         <div class="header-left">
             <div class="menu-icon" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                    <path d="M3 12h18M3 6h18M3 18h18"></path>
+                </svg>
             </div>
             <a href="index.html" class="logo">AGOD</a>
         </div>
         <div class="header-right">
-            <nav class="main-nav">
-                <a href="#">SEARCH</a>
+            <div class="search-bar-container">
+                <input type="text" placeholder="SEARCH" class="search-input">
+            </div>
+            <nav class="user-actions">
                 <a href="#">LOG IN</a>
                 <a href="#">HELP</a>
-                <a href="#">CART (0)</a>
+                <a href="#" class="cart-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </a>
             </nav>
         </div>
     </header>
@@ -81,13 +90,11 @@
 
         <div class="menu-media-section">
             <div class="menu-media-item">
-                <img src="2036.jpg"
-                    alt="Campaign 1">
+                <img src="https://picsum.photos/400/600?random=10" alt="Campaign 1">
                 <span>NEW IN</span>
             </div>
             <div class="menu-media-item">
-                <img src="2036.jpg"
-                    alt="Campaign 2">
+                <img src="https://picsum.photos/400/600?random=11" alt="Campaign 2">
                 <span>CAMPAIGN</span>
             </div>
         </div>
@@ -118,104 +125,130 @@
             </div>
         </div>
 
-        <section class="product-grid category-grid cols-2" id="productGrid">
+        <div class="product-grid cols-4" id="productGrid">
             <!-- Product 1 -->
             <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop"
-                        alt="Floral Dress">
-                    <button class="btn-add-cart">ADD TO BAG</button>
-                </div>
-                <div class="product-info">
-                    <h3>FLORAL DRESS</h3>
-                    <p>₩ 89,000</p>
-                </div>
+                <a href="product.html" class="product-link">
+                    <div class="product-image-container">
+                        <img src="https://picsum.photos/850/1275?random=20" alt="Jacket 1" class="product-img main">
+                        <img src="https://picsum.photos/850/1275?random=21" alt="Jacket 1 Hover"
+                            class="product-img hover">
+                        <button class="btn-add-bag-hover">ADD TO BAG +</button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">퍼 이펙트 칼라 데님 점퍼</div>
+                        <div class="product-price">109,900 원</div>
+                    </div>
+                </a>
             </div>
             <!-- Product 2 -->
             <div class="product-card">
-                <div class="product-image">
-                    <img src="2036.jpg"
-                        alt="Black Blazer">
-                    <button class="btn-add-cart">ADD TO BAG</button>
-                </div>
-                <div class="product-info">
-                    <h3>OVERSIZED BLAZER</h3>
-                    <p>₩ 129,000</p>
-                </div>
+                <a href="product.html" class="product-link">
+                    <div class="product-image-container">
+                        <img src="https://picsum.photos/850/1275?random=22" alt="Jacket 2" class="product-img main">
+                        <img src="https://picsum.photos/850/1275?random=23" alt="Jacket 2 Hover"
+                            class="product-img hover">
+                        <button class="btn-add-bag-hover">ADD TO BAG +</button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">FAUX LEATHER JACKET</div>
+                        <div class="product-price">129,900 원</div>
+                    </div>
+                </a>
             </div>
             <!-- Product 3 -->
             <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop"
-                        alt="Silk Shirt">
-                    <button class="btn-add-cart">ADD TO BAG</button>
-                </div>
-                <div class="product-info">
-                    <h3>SILK SHIRT</h3>
-                    <p>₩ 79,000</p>
-                </div>
+                <a href="product.html" class="product-link">
+                    <div class="product-image-container">
+                        <img src="https://picsum.photos/850/1275?random=24" alt="Silk Shirt" class="product-img main">
+                        <img src="https://picsum.photos/850/1275?random=24" alt="Silk Shirt Hover"
+                            class="product-img hover">
+                        <button class="btn-add-bag-hover">ADD TO BAG +</button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">SILK SHIRT</div>
+                        <div class="product-price">79,000 원</div>
+                    </div>
+                </a>
             </div>
             <!-- Product 4 -->
             <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?q=80&w=1000&auto=format&fit=crop"
-                        alt="Velvet Dress">
-                    <button class="btn-add-cart">ADD TO BAG</button>
-                </div>
-                <div class="product-info">
-                    <h3>VELVET DRESS</h3>
-                    <p>₩ 99,000</p>
-                </div>
+                <a href="product.html" class="product-link">
+                    <div class="product-image-container">
+                        <img src="https://picsum.photos/850/1275?random=25" alt="Velvet Dress" class="product-img main">
+                        <img src="https://picsum.photos/850/1275?random=25" alt="Velvet Dress Hover"
+                            class="product-img hover">
+                        <button class="btn-add-bag-hover">ADD TO BAG +</button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">VELVET DRESS</div>
+                        <div class="product-price">99,000 원</div>
+                    </div>
+                </a>
             </div>
             <!-- Product 5 -->
             <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=1000&auto=format&fit=crop"
-                        alt="Wool Coat">
-                    <button class="btn-add-cart">ADD TO BAG</button>
-                </div>
-                <div class="product-info">
-                    <h3>WOOL COAT</h3>
-                    <p>₩ 249,000</p>
-                </div>
+                <a href="product.html" class="product-link">
+                    <div class="product-image-container">
+                        <img src="https://picsum.photos/850/1275?random=26" alt="Wool Coat" class="product-img main">
+                        <img src="https://picsum.photos/850/1275?random=26" alt="Wool Coat Hover"
+                            class="product-img hover">
+                        <button class="btn-add-bag-hover">ADD TO BAG +</button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">WOOL COAT</div>
+                        <div class="product-price">249,000 원</div>
+                    </div>
+                </a>
             </div>
             <!-- Product 6 -->
             <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000&auto=format&fit=crop"
-                        alt="Leather Jacket">
-                    <button class="btn-add-cart">ADD TO BAG</button>
-                </div>
-                <div class="product-info">
-                    <h3>LEATHER JACKET</h3>
-                    <p>₩ 189,000</p>
-                </div>
+                <a href="product.html" class="product-link">
+                    <div class="product-image-container">
+                        <img src="https://picsum.photos/850/1275?random=27" alt="Leather Jacket"
+                            class="product-img main">
+                        <img src="https://picsum.photos/850/1275?random=27" alt="Leather Jacket Hover"
+                            class="product-img hover">
+                        <button class="btn-add-bag-hover">ADD TO BAG +</button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">LEATHER JACKET</div>
+                        <div class="product-price">189,000 원</div>
+                    </div>
+                </a>
             </div>
             <!-- Product 7 -->
             <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&w=1000&auto=format&fit=crop"
-                        alt="White Top">
-                    <button class="btn-add-cart">ADD TO BAG</button>
-                </div>
-                <div class="product-info">
-                    <h3>ASYMMETRIC TOP</h3>
-                    <p>₩ 49,000</p>
-                </div>
+                <a href="product.html" class="product-link">
+                    <div class="product-image-container">
+                        <img src="https://picsum.photos/850/1275?random=28" alt="White Top" class="product-img main">
+                        <img src="https://picsum.photos/850/1275?random=28" alt="White Top Hover"
+                            class="product-img hover">
+                        <button class="btn-add-bag-hover">ADD TO BAG +</button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ASYMMETRIC TOP</div>
+                        <div class="product-price">49,000 원</div>
+                    </div>
+                </a>
             </div>
             <!-- Product 8 -->
             <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1000&auto=format&fit=crop"
-                        alt="Printed Dress">
-                    <button class="btn-add-cart">ADD TO BAG</button>
-                </div>
-                <div class="product-info">
-                    <h3>PRINTED DRESS</h3>
-                    <p>₩ 89,000</p>
-                </div>
+                <a href="product.html" class="product-link">
+                    <div class="product-image-container">
+                        <img src="https://picsum.photos/850/1275?random=29" alt="Printed Dress"
+                            class="product-img main">
+                        <img src="https://picsum.photos/850/1275?random=29" alt="Printed Dress Hover"
+                            class="product-img hover">
+                        <button class="btn-add-bag-hover">ADD TO BAG +</button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">PRINTED DRESS</div>
+                        <div class="product-price">89,000 원</div>
+                    </div>
+                </a>
             </div>
-        </section>
+        </div>
     </main>
 
     <!-- Filter Drawer -->
@@ -298,28 +331,30 @@
     </div>
 
     <footer class="site-footer">
-        <h3>HELP</h3>
-        <a href="#">Shop at AGOD.com</a>
-        <a href="#">Product</a>
-        <a href="#">Payment</a>
-        <a href="#">Shipping</a>
-        </div>
-        <div class="footer-column">
-            <h3>FOLLOW US</h3>
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-        </div>
-        <div class="footer-column">
-            <h3>COMPANY</h3>
-            <a href="#">About us</a>
-            <a href="#">Offices</a>
-            <a href="#">Stores</a>
-        </div>
-        <div class="footer-column newsletter">
-            <h3>NEWSLETTER</h3>
-            <input type="email" placeholder="Enter your email here">
-        </div>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>HELP</h3>
+                <a href="#">Shop at AGOD.com</a>
+                <a href="#">Product</a>
+                <a href="#">Payment</a>
+                <a href="#">Shipping</a>
+            </div>
+            <div class="footer-column">
+                <h3>FOLLOW US</h3>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+            </div>
+            <div class="footer-column">
+                <h3>COMPANY</h3>
+                <a href="#">About us</a>
+                <a href="#">Offices</a>
+                <a href="#">Stores</a>
+            </div>
+            <div class="footer-column newsletter">
+                <h3>NEWSLETTER</h3>
+                <input type="email" placeholder="Enter your email here">
+            </div>
         </div>
     </footer>
 

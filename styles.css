@@ -75,33 +75,22 @@ ul {
 }
 
 .menu-icon {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
     cursor: pointer;
-    width: 24px;
-}
-
-.menu-icon span {
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: currentColor;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
 /* Menu Open State for Icon */
-body.menu-open .menu-icon span:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
+/* Menu Open State for Icon */
+body.menu-open .menu-icon svg {
+    display: none;
+    /* Hide SVG when menu is open if using CSS toggle, but we might need JS logic */
 }
 
-body.menu-open .menu-icon span:nth-child(2) {
-    opacity: 0;
-}
-
-body.menu-open .menu-icon span:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
-}
+/* We are using SVG now, so the span animations are no longer relevant unless we switch back.
+   For now, we'll keep the SVG static or handle it via JS if needed.
+   The user requested "exactly like Zara", which uses a simple hamburger SVG.
+*/
 
 .logo {
     font-size: 100px;
@@ -116,16 +105,55 @@ body.menu-open .menu-icon span:nth-child(3) {
     color: currentColor;
 }
 
-.header-right .main-nav {
+.header-right {
     display: flex;
-    gap: 32px;
-    font-weight: 400;
+    align-items: center;
+    gap: 24px;
+}
+
+.search-bar-container {
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 4px;
+}
+
+.search-input {
+    border: none;
+    background: transparent;
+    font-family: var(--font-main);
     font-size: 11px;
-    /* Smaller, cleaner font */
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding-top: 10px;
-    /* Align with menu icon */
+    color: currentColor;
+    width: 150px;
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: currentColor;
+    opacity: 1;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.cart-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cart-count {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    font-size: 9px;
+    font-weight: 500;
 }
 
 .header-right .main-nav a {
@@ -406,14 +434,52 @@ body.menu-open .mobile-menu-drawer {
     color: var(--color-black);
 }
 
-.category-grid {
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    /* Zara style tight gap */
     padding-top: 20px;
     transition: all 0.3s ease;
 }
 
-/* Add to Bag Button on Hover */
-.product-image {
+/* Grid Columns Toggle */
+.product-grid.cols-1 {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.product-grid.cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.product-grid.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.product-grid.cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Hero Section */
+/* Product Image & Button */
+.product-image,
+.product-image-container {
     position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+.product-img,
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .btn-add-cart {
@@ -437,25 +503,6 @@ body.menu-open .mobile-menu-drawer {
 .product-card:hover .btn-add-cart {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
-}
-
-/* Grid Columns Toggle */
-.category-grid.cols-1 {
-    grid-template-columns: 1fr;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.category-grid.cols-2 {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.category-grid.cols-3 {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.category-grid.cols-4 {
-    grid-template-columns: repeat(4, 1fr);
 }
 
 /* Hero Section */
@@ -718,6 +765,198 @@ body.menu-open .mobile-menu-drawer {
     color: var(--color-white);
 }
 
+/* Product Page Styles */
+/* Product Page Styles */
+.product-container {
+    display: flex;
+    padding-top: 160px;
+    /* Header height */
+    min-height: 100vh;
+    max-width: 100%;
+}
+
+.product-gallery {
+    width: 60%;
+    /* Reduced from 65% */
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 100px;
+    padding-left: 40px;
+    /* Add padding to center/reduce visual width */
+}
+
+.product-gallery img,
+.product-gallery video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.product-info-sticky {
+    width: 40%;
+    /* Increased from 35% */
+    position: sticky;
+    top: 160px;
+    height: calc(100vh - 160px);
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background-color: var(--color-white);
+}
+
+.product-header {
+    margin-bottom: 24px;
+}
+
+.product-title {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+.product-price-detail {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.product-ref {
+    font-size: 11px;
+    color: #999;
+}
+
+.product-description {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    color: var(--color-black);
+}
+
+.product-color-selection {
+    margin-bottom: 32px;
+}
+
+.color-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.color-options {
+    display: flex;
+    gap: 12px;
+}
+
+.color-option {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+.color-option.selected::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 1px solid var(--color-black);
+    border-radius: 50%;
+}
+
+.size-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 24px;
+    border-top: 1px solid #eee;
+}
+
+.size-option {
+    font-size: 11px;
+    padding: 12px 0;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    transition: background-color 0.2s;
+}
+
+.size-option:hover {
+    background-color: #f9f9f9;
+}
+
+.size-guide-link {
+    font-size: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-bottom: 32px;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #666;
+}
+
+.btn-add-to-bag {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border: none;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    transition: opacity 0.3s;
+}
+
+.btn-add-to-bag:hover {
+    opacity: 0.9;
+}
+
+.product-footer-links {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-link-item {
+    font-size: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        padding-top: 60px;
+    }
+
+    .product-gallery {
+        width: 100%;
+    }
+
+    .product-info-sticky {
+        width: 100%;
+        position: static;
+        height: auto;
+        padding: 24px;
+    }
+}
+
 .hero-content {
     display: none;
 }
@@ -774,20 +1013,33 @@ body.menu-open .mobile-menu-drawer {
     transform: scale(1.05);
 }
 
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
 .product-info {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    /* Stack vertically */
+    align-items: flex-start;
+    padding-top: 8px;
     font-size: 11px;
     text-transform: uppercase;
     color: var(--color-black);
+    line-height: 1.4;
+    gap: 4px;
+    /* Space between name and price */
 }
 
-.product-info h3 {
+.product-name {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
     font-weight: 400;
+    text-align: left;
 }
 
-.product-info p {
-    font-weight: 400;
+.product-price {
+    font-weight: 700;
+    /* Bold */
+    text-align: left;
+    white-space: nowrap;
 }
 
 /* Footer */
@@ -879,5 +1131,155 @@ body.menu-open .mobile-menu-drawer {
     .mobile-menu-drawer {
         width: 100%;
         /* Full width on mobile */
+    }
+}
+
+/* Side Drawer Styles */
+.side-drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.side-drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.side-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100%;
+    background-color: var(--color-white);
+    z-index: 2001;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.side-drawer.active {
+    transform: translateX(0);
+}
+
+.drawer-header {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.drawer-header h2 {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.drawer-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.drawer-content {
+    padding: 24px;
+    overflow-y: auto;
+    flex: 1;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Cart Specific Styles in Drawer */
+.cart-success-msg {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--color-black);
+}
+
+.cart-item-preview {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.cart-item-img {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.cart-item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cart-item-name {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.cart-item-price {
+    font-size: 11px;
+}
+
+.cart-item-meta {
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.cart-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-view-cart,
+.btn-checkout {
+    width: 100%;
+    padding: 14px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-view-cart {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: 1px solid var(--color-black);
+}
+
+.btn-checkout {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border: 1px solid var(--color-black);
+}
+
+@media (max-width: 480px) {
+    .side-drawer {
+        width: 100%;
     }
 }
