@@ -79,23 +79,23 @@ document.addEventListener('DOMContentLoaded', () => {
             if (selectedSize) {
                 const sizeText = selectedSize.textContent.split(' ')[0]; // Extract XS, S, etc.
                 const content = `
-                    <div class="cart-success-msg">장바구니에 담겼습니다</div>
+                    <div class="cart-success-msg">ADDED TO BAG</div>
                     <div class="cart-item-preview">
                         <img src="https://picsum.photos/850/1275?random=1" alt="Product" class="cart-item-img">
                         <div class="cart-item-details">
-                            <div class="cart-item-name">후드 다운 패딩 점퍼</div>
-                            <div class="cart-item-price">109,900 원</div>
-                            <div class="cart-item-meta">먹색 | ${sizeText}</div>
+                            <div class="cart-item-name">HOODED DOWN PUFFER JACKET</div>
+                            <div class="cart-item-price">109,900 KRW</div>
+                            <div class="cart-item-meta">CHARCOAL | ${sizeText}</div>
                         </div>
                     </div>
                     <div class="cart-actions">
-                        <a href="#" class="btn-view-cart">장바구니 보기</a>
-                        <a href="#" class="btn-checkout">결제하기</a>
+                        <a href="#" class="btn-view-cart">VIEW BAG</a>
+                        <a href="#" class="btn-checkout">CHECKOUT</a>
                     </div>
                 `;
-                openDrawer('장바구니 담기', content);
+                openDrawer('ADD TO BAG', content);
             } else {
-                alert('사이즈를 선택해주세요.'); // Keep alert for error or use a toast/small drawer
+                alert('Please select a size.'); // Keep alert for error or use a toast/small drawer
             }
         });
     }
@@ -103,19 +103,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Footer Links (Dummy Content)
     const footerLinks = document.querySelectorAll('.footer-link-item');
     const dummyContent = {
-        '소재 및 관리': `
-            <p><strong>겉감</strong><br>100% 폴리에스터</p><br>
-            <p><strong>안감</strong><br>100% 폴리에스터</p><br>
-            <p><strong>충전재</strong><br>100% 폴리에스터</p><br>
-            <p><strong>관리</strong><br>세탁기 사용 가능 (30도 이하)<br>표백제 사용 금지<br>다림질 금지<br>드라이클리닝 권장</p>
+        'MATERIALS & CARE': `
+            <p><strong>OUTER SHELL</strong><br>100% POLYESTER</p><br>
+            <p><strong>LINING</strong><br>100% POLYESTER</p><br>
+            <p><strong>FILLING</strong><br>100% POLYESTER</p><br>
+            <p><strong>CARE</strong><br>MACHINE WASH UP TO 30ºC/86ºF GENTLE CYCLE<br>DO NOT BLEACH<br>DO NOT IRON<br>DRY CLEAN RECOMMENDED</p>
         `,
-        '배송 및 반품': `
-            <p><strong>배송</strong><br>무료 배송<br>주문일로부터 3-5일 이내 배송 (영업일 기준)</p><br>
-            <p><strong>반품</strong><br>제품 수령 후 30일 이내 반품 가능<br>반품 배송비 무료 (단, 단순 변심의 경우 고객 부담일 수 있음)</p>
+        'SHIPPING & RETURNS': `
+            <p><strong>SHIPPING</strong><br>FREE SHIPPING<br>DELIVERY WITHIN 3-5 BUSINESS DAYS</p><br>
+            <p><strong>RETURNS</strong><br>RETURN WITHIN 30 DAYS OF RECEIPT<br>FREE RETURN SHIPPING (EXCEPT FOR CHANGE OF MIND)</p>
         `,
-        '매장 내 재고 확인': `
-            <p>현재 온라인 전용 상품입니다.</p><br>
-            <p>가까운 매장의 재고 확인을 원하시면 고객센터(1234-5678)로 문의해 주시기 바랍니다.</p>
+        'STORE AVAILABILITY': `
+            <p>CURRENTLY ONLINE EXCLUSIVE.</p><br>
+            <p>PLEASE CONTACT CUSTOMER SERVICE (1234-5678) FOR STORE AVAILABILITY.</p>
         `
     };
 

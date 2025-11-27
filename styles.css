@@ -93,6 +93,7 @@ body.menu-open .menu-icon svg {
 */
 
 .logo {
+    font-family: 'Playfair Display', 'Didot', 'Bodoni MT', 'Times New Roman', serif;
     font-size: 100px;
     /* Very large like Zara's current design */
     font-weight: 700;
@@ -348,6 +349,7 @@ body.menu-open .mobile-menu-drawer {
     -ms-overflow-style: none;
     /* IE/Edge */
     flex: 1;
+    padding-left: 100px;
 }
 
 .subcategory-list::-webkit-scrollbar {
@@ -438,29 +440,58 @@ body.menu-open .mobile-menu-drawer {
 .product-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-    /* Zara style tight gap */
-    padding-top: 20px;
+    gap: 100px;
+    /* Reduced gap slightly for tighter packing */
+    padding: 100px 5%;
+    /* Reduced side padding to fill screen */
+    width: 100%;
     transition: all 0.3s ease;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        padding: 40px 40px;
+    }
+
+    /* Override specific col classes on small screens if needed, 
+       but usually the JS toggle might persist. 
+       For now, let's ensure basic responsiveness works. */
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 20px 20px;
+    }
 }
 
 /* Grid Columns Toggle */
 .product-grid.cols-1 {
     grid-template-columns: 1fr;
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
+    justify-content: center;
 }
 
 .product-grid.cols-2 {
     grid-template-columns: repeat(2, 1fr);
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: center;
 }
 
 .product-grid.cols-3 {
     grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
 }
 
 .product-grid.cols-4 {
     grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
 }
 
 /* Hero Section */
@@ -980,11 +1011,14 @@ body.menu-open .mobile-menu-drawer {
 
 /* Product Grid */
 .product-grid {
-    padding: 100px 24px;
+    padding: 100px 110px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 40px 16px;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    gap: 40px 100px;
     /* Larger vertical gap */
+    width: 100%;
+    transition: all 0.3s ease;
 }
 
 .product-card {
